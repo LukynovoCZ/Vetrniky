@@ -47,8 +47,8 @@ export async function terrainGrid(origin, signal) {
 }
 export function turbine(p) {
   const d=dimensions(p);if(!d)return null;
-  const group=sharedAsset.scene.clone(true);const color=p.status==='simulation'?0xa73888:p.status==='model'?0xc38c50:p.status==='planned'?0x779eae:0xebece4;
-  group.traverse(o=>{if(o.isMesh){o.material=new T.MeshLambertMaterial({color,side:T.DoubleSide});}});
+  const group=sharedAsset.scene.clone(true);const color=0xffffff;
+  group.traverse(o=>{if(o.isMesh){o.material=new T.MeshLambertMaterial({color,emissive:0x181818,side:T.DoubleSide});}});
   const tower=group.getObjectByName('tower');tower.scale.y=d.hub;tower.position.y=d.hub/2;
   group.getObjectByName('nacelle').position.y=d.hub;
   const rotor=group.getObjectByName('rotor');rotor.position.y=d.hub;group.getObjectByName('blades').scale.setScalar(d.rotor);
