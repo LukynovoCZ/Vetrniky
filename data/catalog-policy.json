@@ -1,0 +1,7 @@
+{
+  "redistributionApproved": false,
+  "checkedAt": "2026-11-15",
+  "source": "https://www.csve.cz/instalace/instalace-v-cr/",
+  "finding": "No explicit bulk redistribution permission found on the installation page or home page. Absence of a license is not permission. No permission request sent.",
+  "production": "Default build excludes reference catalogue and catalogue audit. Public deployment is not authorized by this change."
+}

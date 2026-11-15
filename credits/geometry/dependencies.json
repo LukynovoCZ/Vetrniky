@@ -1,0 +1,74 @@
+[
+  {
+    "name": "@turf/helpers",
+    "version": "7.4.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/Turfjs/turf.git"
+    }
+  },
+  {
+    "name": "@turf/meta",
+    "version": "7.4.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/Turfjs/turf.git"
+    }
+  },
+  {
+    "name": "@turf/bbox",
+    "version": "7.4.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/Turfjs/turf.git"
+    }
+  },
+  {
+    "name": "@turf/center",
+    "version": "7.4.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/Turfjs/turf.git"
+    }
+  },
+  {
+    "name": "@turf/jsts",
+    "version": "2.7.2",
+    "license": "(EDL-1.0 OR EPL-1.0)",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/turfjs/turf-jsts.git"
+    }
+  },
+  {
+    "name": "d3-geo",
+    "version": "1.7.1",
+    "license": "BSD-3-Clause",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/d3/d3-geo.git"
+    }
+  },
+  {
+    "name": "d3-array",
+    "version": "1.2.4",
+    "license": "BSD-3-Clause",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/d3/d3-array.git"
+    }
+  },
+  {
+    "name": "@turf/buffer",
+    "version": "7.2.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/Turfjs/turf.git"
+    }
+  }
+]

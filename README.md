@@ -4,9 +4,10 @@ První MVP pro [issue #1](https://github.com/LukynovoCZ/Vetrniky/issues/1). MapL
 
 ## Spuštění
 
-Node.js 22.15 nebo novější, bez instalace závislostí:
+Node.js 22.15 nebo novější. Vývojové testy vyžadují npm ci:
 
 ```sh
+npm ci
 npm test
 npm run build
 npm run dev
@@ -26,6 +27,12 @@ Otevřít http://127.0.0.1:8000/; Cloudflare Pages build: npm run build, výstup
 Fialové objekty jsou vlastní ilustrace, nikoli doložené projekty. Oficiální oblast sama neurčuje plánované stavby. Evidence ŘLP není úplný registr provozu. Rozměry Pcher mají rozpor ČSVE 144 m vs. AIP 138 m. Místní výřez má 6 × 6 km, mimo Pchery chybí budovy/vegetace; bez transformace výškového data a odborného posouzení viditelnosti.
 
 [Technologie, porovnání Cesium/MapLibre a ověření zdrojů](docs/ISSUE-1.md). [Původní dokumentace exportu](docs/EXPORT-README.md). Zdrojový registr: data/sources.json, audit stažených podkladů: data/verification.json. Výsledky ověření: docs/VALIDATION.md.
+
+## Katalog VTE a geometrie
+
+Lokální náhled obsahuje 89 instalačních záznamů ČSVE a výběr výrobce/modelu v editoru. Původní čísla a neověřené opravy jsou oddělené. Automatické vazby na jednotlivé souřadnice jsou pouze dvě, obě v Pcherech. Právní pásma bez ověřených vstupů zůstávají prázdná.
+
+[Podrobný přehled změn, známých rozporů a testů](docs/CATALOG-CHANGELOG.md). npm run audit:catalog vytvoří místní detailní audit. Výchozí build nezahrnuje hromadná referenční data kvůli nedoložené licenci; původní mapa a vlastní editor fungují i bez katalogu. Veřejné nasazení této změny neproběhlo.
 
 ## Licence
 

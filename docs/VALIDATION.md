@@ -19,3 +19,14 @@ Průběžný záznam 15. 11. 2026.
 6. Zapnout před/po, vlevo ověřit skryté vlastní simulace.
 7. Otevřít /spike/, ověřit dvě 250m instance a výšku očí.
 8. Zopakovat při šířce 390 px a vypnuté animaci.
+
+## Katalog VTE a geometrické vrstvy (15. 11. 2026)
+
+- Import 89 původních řádků, 10 neověřených návrhů rozměrů, 3 blokované řádky a 4 matematické nesoulady výkonu.
+- Explicitně propojeny dvě turbíny Pcher; 88 lokalit zůstává bez ověřené vazby. Původní existing.geojson i PSV beze změn.
+- Přidány skutečné DOM testy katalogového ovládání, regresní testy sdílení a matematické geometrie.
+- Výchozí produkční build záměrně vylučuje data/reference. Test kontroluje i odstranění případných starých referenčních souborů z dist a odmítnutí neschváleného --with-catalog.
+- Nedostupná aktuální konsolidace zákona vede k vypnutému právnímu výpočtu, nikoli k tvrzení o právně platných pásmech.
+- Podrobná metodika a licence: CATALOG-CHANGELOG.md. Žádné veřejné nasazení.
+
+- Finální sada: 26 testů (včetně inicializace celé aplikace přes testovací mapové rozhraní s katalogem i bez něj a ořezu 3D obrysů na hranici místního terénu). Živý WebGL prohlížeč tímto není ověřen.
