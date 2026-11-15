@@ -36,3 +36,9 @@ Průběžný záznam 15. 11. 2026.
 Přidán panoramatický režim, terénní profil a sférická geometrie. Ověření skutečného DEM pro vzor u zámku: 14 dlaždic, 29 ilustračních kandidátů do 40 km s horním bodem nad terénním horizontem; porovnaný nižší bod vrací 29 za terénem. Žádná z těchto čísel není potvrzením viditelnosti v zastavěném městě. Metodika a reprodukce: PIN-PANORAMA.md. Živý WebGL výstup zatím neověřen.
 
 - Final panorama regression suite: 38 tests passed. Static build: 5.28 MiB, catalogue excluded. Real Benatky DEM sample: 14 tiles / 1,589,379 source bytes; cached numerical verification approximately 0.2 s (not a browser FPS benchmark).
+
+## Směr pohledu ze špendlíku
+
+Doplněna synchronní výseč a osa kamery v hlavní mapě i orientační mapce panoramatu. Nové testy ověřují azimut přes sever, původ ve špendlíku, horizontální FOV podle poměru stran, změnu zoomu, projekci skloněné kamery a aktualizaci zdrojů MapLibre. Výseč není viewshed.
+
+- Výsledná sada po doplnění výseče: 43 testů. Kontrola zahrnuje také live callback skutečného poměru stran panoramatické kamery při změně rozměrů viewportu.

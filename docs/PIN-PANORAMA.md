@@ -38,3 +38,9 @@ Síť terénu je vytvářena podle skutečných výšek, pozorovatel má v míst
 Nové testy pokrývají kulovou geometrii a zakřivení, vzdálenosti/azimuty, blokující hřeben, neznámé rozměry, chybějící DEM, více úrovní dlaždic a jejich souběžnost, NoData, nalezení nejbližší hranice oblasti, špendlíkové ovládání, obnovení kamery z URL, skutečnou geometrii radiálního terénu a 3D výpočetní průchod bez GPU. Původní regresní testy katalogu, editoru, terénu a sdílení zůstávají zachované.
 
 Živý WebGL průchod a fyzický telefon nejsou těmito testy nahrazeny. Výsledek nástroje verify:benatky ověřuje numerickou větev na reálných datech, nikoli finální obraz či odbornou přesnost viditelnosti.
+
+## Výseč směru kamery
+
+Přehledová mapa ukazuje modrou průhlednou výseč ze špendlíku, její okraj a přerušovanou osu pohledu. V panoramatu se stejná mapa zmenší do severně orientované mapky. Tlačítko Zvětšit mapu ji vrátí do hlavního přehledu; směr zůstane zakreslený. Otáčení aktualizuje výseč během tažení. Šířka vychází ze skutečného poměru stran perspektivní kamery a jejího FOV; zoom a změna velikosti okna proto odpovídajícím způsobem mění výseč. Zohlední se také půdorysná projekce nakloněné kamery; při zahrnutí svislého směru může tvořit celé okolí. Délka výseče odpovídá zkoumanému dosahu 20/40/60 km.
+
+Výseč je orientační záběr kamery, nikoli plocha skutečné viditelnosti. Nemaskuje oblasti skryté za terénem, budovami nebo vegetací a nenahrazuje výsledky terénního profilu. Polohy ani modelové scénáře nemění.
