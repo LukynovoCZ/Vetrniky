@@ -1,0 +1,24 @@
+VÍTR V KRAJINĚ – HOTOVÝ WEB K NAHRÁNÍ
+
+1. Rozbalte ZIP. Soubor index.html je přímo v kořeni archivu.
+2. Nahrajte celý obsah na statický hosting (například Cloudflare Pages nebo Netlify), případně do webové složky vlastního serveru. Není potřeba Node.js, npm, instalace ani sestavení.
+3. Otevřete adresu webu přes HTTPS. Aplikace nepotřebuje původní účet ChatGPT ani přístup k soukromému Sites projektu.
+4. Přímý pohled na animovanou krajinu: za adresu webu přidejte /#view=iso&landscape=mixed&s=model&lz=3.3&animate=1
+
+Pro místní spuštění otevřete terminál ve složce s index.html:
+    python -m http.server 8000
+Potom otevřete http://localhost:8000/ na TOMTÉŽ počítači. Na Windows lze použít také py -m http.server 8000.
+Neotvírejte index.html dvojklikem přes file://; JavaScriptové moduly a datové vrstvy vyžadují HTTP(S).
+
+Internet je potřeba pro celostátní mapové dlaždice, další výškové dlaždice a vyhledávání. Modelové krajiny jsou součástí balíčku. Prohlížeč musí podporovat WebGL.
+Server musí soubory .mjs odesílat jako JavaScript (text/javascript nebo application/javascript). Přiložené .htaccess a _headers toto nastavují pro běžné Apache/Cloudflare Pages/Netlify konfigurace.
+
+OBSAH A LICENCE
+Balíček obsahuje nejnovější nasazenou verzi s animovanými rotory, třemi modelovými krajinami, nastavitelnými stromy a porovnáním velikosti. Obsahuje lokální knihovny, data, kredity a licence. Neobsahuje přihlašovací údaje ani vazbu na soukromý hosting.
+
+data/sources.json: zdroje, platnost, licence a omezení dat.
+README.md: podrobná dokumentace.
+vendor/IZOMAPA-LICENSE: AGPL-3.0-or-later.
+credits/: licence podkladů.
+
+Modelové krajiny a stromy jsou ilustrativní, nikoli doložené projekty. Evidence ŘLP není úplným registrem provozovaných elektráren. Zachovejte uvedené kredity a licence.

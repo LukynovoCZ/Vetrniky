@@ -1,0 +1,13 @@
+{
+  "name": "vitr-v-krajine",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "build": "node scripts/build.mjs",
+    "test:vitr": "npm test",
+    "build:vitr": "npm run build",
+    "nahled": "npm run dev"
+  }
+}

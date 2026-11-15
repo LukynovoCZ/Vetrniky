@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-11-15",
+  "method": "Fresh official download; SHA256 equality to imported snapshot. Source page statements checked independently.",
+  "files": [
+    {
+      "id": "mmr-z2",
+      "sha256": "a74f7e85cf5ee623f21217897569333d822ee0f7a6b4b5939ad71a0fff44a7f1",
+      "matchesExport": true
+    },
+    {
+      "id": "aip",
+      "sha256": "34d07872aacce7a26f5488829b3c39dee092555c75816506e538fdc78c1fa548",
+      "matchesExport": true
+    }
+  ],
+  "limitations": [
+    "Original import scripts absent from export.",
+    "Not a complete survey of operating turbines.",
+    "No authoritative vertical datum conversion implemented."
+  ]
+}

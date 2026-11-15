@@ -1,0 +1,102 @@
+{
+  "checkedAt": "2026-11-15",
+  "datasets": [
+    {
+      "id": "mmr-z2",
+      "name": "MMR · vydaná Změna č. 2 ÚRP, GML",
+      "url": "https://www.mmr.gov.cz/cs/ministerstvo/stavebni-pravo/koncepce-a-strategie/uzemni-rozvojovy-plan/zmena-c-2-uzemniho-rozvojoveho-planu-a-souvisejici",
+      "downloadUrl": "https://www.mmr.gov.cz/getmedia/37b6d0d0-7d92-433f-aa99-46d6672008ee/Data_Z2_URP.zip.aspx?ext=.zip",
+      "validAt": "2026-08-25",
+      "downloadedAt": "2026-11-13",
+      "license": "Úřední dílo / právní vymezení (§ 3 autorského zákona); explicitní otevřená licence balíčku neuvedena.",
+      "note": "GML EPSG:5514 převedeno do EPSG:4326, bez zjednodušení hranic. Ze 61 oblastí vybráno 49 s DRUH_O_AKC=AOV, solární AOS vyloučeny. Stav účinnosti ověřen na stránce MMR. Místní a krajská vymezení nejsou zahrnuta; návrhy nebyly importovány.",
+      "downloadSha256": "a74f7e85cf5ee623f21217897569333d822ee0f7a6b4b5939ad71a0fff44a7f1",
+      "checkedAt": "2026-11-15"
+    },
+    {
+      "id": "aip",
+      "name": "ŘLP ČR · AIP ENR 5.4, letecké překážky",
+      "url": "https://aim.rlp.cz/ais_data/aip/data/valid/e5-4.pdf",
+      "validAt": "2026-04-16 (datum v načteném PDF)",
+      "downloadedAt": "2026-11-13",
+      "license": "Veřejná AIP; otevřená licence v PDF neuvedena. Odvozený výběr faktických souřadnic, nikoli reprodukce dokumentu.",
+      "note": "175 záznamů typu Windmill. Přehled trvalých překážek zpravidla od 100 m AGL, nikoli kompletní evidence elektráren ani potvrzení provozu. Souřadnice ve WGS84 v celých úhlových vteřinách (cca 20–31 m). Výška překážky se nepoužívá k odhadu náboje nebo rotoru. Ověřit podmínky hromadné redistribuce u ŘLP před veřejným provozem služby.",
+      "downloadSha256": "34d07872aacce7a26f5488829b3c39dee092555c75816506e538fdc78c1fa548",
+      "checkedAt": "2026-11-15"
+    },
+    {
+      "id": "csve",
+      "name": "ČSVE · Instalace v ČR",
+      "url": "https://www.csve.cz/instalace/instalace-v-cr/",
+      "validAt": "2025-12-01",
+      "checkedAt": "2026-11-15",
+      "license": "Otevřená licence neuvedena; použita faktická dvojice rozměrů Pchery s odkazem.",
+      "note": "Pchery: WinWind WWD-3, stožár 100 m, rotor 88 m, dvě jednotky. Součet dává 144 m. AIP uvádí 138 m, rozpor se zobrazuje v detailu a není skryt. Ostatní rozměry nebyly automaticky párovány podle názvu obce."
+    },
+    {
+      "id": "osm-local",
+      "name": "OpenStreetMap · místní půdorysy Pchery",
+      "url": "https://www.openstreetmap.org/copyright",
+      "downloadUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=14.10,50.18,14.16,50.22",
+      "validAt": null,
+      "downloadedAt": "2026-11-13",
+      "license": "ODbL 1.0, © OpenStreetMap contributors",
+      "note": "2708 cest a ploch v místním demonstrátoru. Neznámé výšky budov zůstávají bez objemu. Známé výšky jsou schematické kvádry; výška odvozená z podlaží je přibližná. Kontext není úplný model zastínění. Data včetně odvozené databáze jsou dodána jako GeoJSON pod ODbL. Doplněny plochy landuse=farmland z téhož stažení. Stromy jsou ilustrační instance uvnitř lesních polygonů, nikoli ověřená poloha a výška jednotlivých stromů.",
+      "downloadSha256": "69db45d1ca7b10310d4d29e2775b2946b3ec64750e1283c6d357ce3a4c559525"
+    },
+    {
+      "id": "ofm",
+      "name": "OpenFreeMap · generalizovaný mapový podklad",
+      "url": "https://openfreemap.org/",
+      "validAt": null,
+      "checkedAt": "2026-11-15",
+      "license": "Mapová data © OpenStreetMap contributors, ODbL; kód stylu Liberty BSD-3-Clause, design CC BY 4.0; OpenMapTiles. Přiložené licence v credits/.",
+      "note": "Vektorové a generalizované rastrové dlaždice se načítají dle viditelného výřezu a přiblížení. Živá služba vyžaduje připojení; její obsah není časovým snímkem této evidence."
+    },
+    {
+      "id": "terrain",
+      "name": "Tilezen / Mapzen · Terrain Tiles (Terrarium)",
+      "url": "https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+      "validAt": null,
+      "checkedAt": "2026-11-15",
+      "license": "Sestaveno z více otevřených výškových zdrojů; licence a kredity jednotlivých zdrojů v odkazu Tilezen.",
+      "note": "Výškový model s omezeným rozlišením, nejde o DMR 5G. Místní síť má krok 46,875 m; podkladové pixely z12 cca 25 m. Neznámé datum měření a vertikální přesnost omezují pohled z výšky očí. Žádné zvýraznění reliéfu: 1 : 1."
+    },
+    {
+      "id": "projects",
+      "name": "Plánované projekty · dosud bez importu",
+      "url": "https://portal.cenia.cz/eiasea/view/eia100_cr",
+      "validAt": null,
+      "checkedAt": "2026-11-13",
+      "license": "Žádná projektová data v této verzi.",
+      "note": "Nebyly získány a ověřeny konkrétní polohy s dokumentací záměru. Prázdná vrstva znamená chybějící import, nikoli nepřítomnost projektů v ČR. Před importem je nutné prověřit EIA, aktuální stav a licenci dokumentů."
+    },
+    {
+      "id": "model",
+      "name": "Ilustrativní rozmístění · izomapa",
+      "url": "https://github.com/adamklatovsky/izomapa",
+      "validAt": null,
+      "checkedAt": "2026-11-13",
+      "license": "AGPL-3.0-or-later (algoritmus); nejde o ověřená projektová data.",
+      "note": "Výchozí stav vypnuto. Pravidelná síť 800 m uvnitř skutečných AOV včetně vyloučení děr; parametry 250/275/300 m, rotor Ø150 m. Bez posouzení větru, odstupů a povolitelnosti. Volitelné krajinné dioráma (pole, les, mozaika) je celé syntetické bez geografických souřadnic. Výšky stromů 10–35 m, dům 8 m a člověk 1,7 m jsou modelové. Animace 0–15 ot./min nereprezentuje meteorologická data."
+    },
+    {
+      "id": "geocoder",
+      "name": "Nominatim · vyhledávání obcí",
+      "url": "https://operations.osmfoundation.org/policies/nominatim/",
+      "validAt": null,
+      "checkedAt": "2026-11-13",
+      "license": "ODbL 1.0, © OpenStreetMap contributors",
+      "note": "Dotaz až po odeslání formuláře, nejvýše jednou za 1,1 s na klienta. Pro veřejnou službu s vyšším provozem použijte vlastní instanci nebo smluvního poskytovatele a globální omezení požadavků."
+    },
+    {
+      "id": "user",
+      "name": "Moje simulace",
+      "url": "https://github.com/LukynovoCZ/Vetrniky",
+      "validAt": null,
+      "checkedAt": "2026-11-15",
+      "license": "Uživatelský scénář; bez tvrzení o povolení a realizaci.",
+      "note": "Oddělené objekty ve sdílené URL a JSON. Poloha a rozměry zadané uživatelem, nikoli oficiální projekty."
+    }
+  ]
+}
