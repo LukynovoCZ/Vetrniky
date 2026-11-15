@@ -30,3 +30,9 @@ Průběžný záznam 15. 11. 2026.
 - Podrobná metodika a licence: CATALOG-CHANGELOG.md. Žádné veřejné nasazení.
 
 - Finální sada: 26 testů (včetně inicializace celé aplikace přes testovací mapové rozhraní s katalogem i bez něj a ořezu 3D obrysů na hranici místního terénu). Živý WebGL prohlížeč tímto není ověřen.
+
+## Špendlík a Benátky nad Jizerou
+
+Přidán panoramatický režim, terénní profil a sférická geometrie. Ověření skutečného DEM pro vzor u zámku: 14 dlaždic, 29 ilustračních kandidátů do 40 km s horním bodem nad terénním horizontem; porovnaný nižší bod vrací 29 za terénem. Žádná z těchto čísel není potvrzením viditelnosti v zastavěném městě. Metodika a reprodukce: PIN-PANORAMA.md. Živý WebGL výstup zatím neověřen.
+
+- Final panorama regression suite: 38 tests passed. Static build: 5.28 MiB, catalogue excluded. Real Benatky DEM sample: 14 tiles / 1,589,379 source bytes; cached numerical verification approximately 0.2 s (not a browser FPS benchmark).

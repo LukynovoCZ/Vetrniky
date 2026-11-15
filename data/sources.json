@@ -115,6 +115,15 @@
       "checkedAt": "2026-11-15",
       "license": "Vlastní výpočty a metodika; reálné zákonné vrstvy bez ověřených vstupů nejsou generovány.",
       "note": "Obálka rotoru není zábor ani zákaz staveb. 500 m se odvozuje od klasifikovaných obytných ploch; aktuální konsolidované právní znění zůstává neověřeno."
+    },
+    {
+      "id": "pin-view",
+      "name": "Výhled ze špendlíku · terénní výpočet",
+      "url": "https://github.com/LukynovoCZ/Vetrniky",
+      "validAt": null,
+      "checkedAt": "2026-11-15",
+      "license": "Vlastní výpočet AGPL-3.0-or-later; podkladové DEM mají samostatné kredity.",
+      "note": "Sférická geometrie a terénní profily ze streamovaných Terrarium dlaždic z9–12; bez budov, vegetace a atmosféry. Jen teoretická viditelnost horního bodu. Vzor Benátky u zámku je orientační a modelové turbíny nejsou plánované stavby."
     }
   ]
 }

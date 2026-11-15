@@ -28,6 +28,10 @@ Fialové objekty jsou vlastní ilustrace, nikoli doložené projekty. Oficiáln�
 
 [Technologie, porovnání Cesium/MapLibre a ověření zdrojů](docs/ISSUE-1.md). [Původní dokumentace exportu](docs/EXPORT-README.md). Zdrojový registr: data/sources.json, audit stažených podkladů: data/verification.json. Výsledky ověření: docs/VALIDATION.md.
 
+## Výhled ze špendlíku
+
+Nové tlačítko Zapíchnout špendlík otevře teoretický terénní výhled z 1,7 m do 20/40/60 km. Vzor Benátky – u zámku zapíná zřetelně označené modelové rozmístění v oblastech. [Použití, vzorový odkaz, metodika a omezení](docs/PIN-PANORAMA.md). npm run verify:benatky ověří vzor na skutečných DEM dlaždicích; vyžaduje internet nebo dříve naplněnou cache.
+
 ## Katalog VTE a geometrie
 
 Lokální náhled obsahuje 89 instalačních záznamů ČSVE a výběr výrobce/modelu v editoru. Původní čísla a neověřené opravy jsou oddělené. Automatické vazby na jednotlivé souřadnice jsou pouze dvě, obě v Pcherech. Právní pásma bez ověřených vstupů zůstávají prázdná.
