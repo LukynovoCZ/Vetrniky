@@ -54,3 +54,13 @@ Popisky nad obrazem a jejich spojnice používají tutéž perspektivu, stanovi�
 Zakryté a neznámé objekty se nevydávají za viditelné popisky v obraze. Při porovnání před/po se nezobrazují popisky budoucích objektů na levé, současné straně. Popisky za kamerou mizí, blízké popisky se rozkládají do nepřekrývajících se řádků. Na krátkém displeji zůstává kompas a rolovatelný seznam názvů bez plovoucích spojnic.
 
 První verze pojmenovává objekty ze stávajících dat VTE a oblastí. Kopce, města a jiné krajinné dominanty nejsou domýšlené ani automaticky přiřazené podle názvu oblasti. Terénní a datová omezení výhledu zůstávají stejná.
+
+## Bílá VTE a mapový podklad na terénu
+
+Všechny skutečné 3D modely turbín jsou bílé (včetně základního glTF používaného v Cesium prototypu). Status existující/plánované/vlastní/modelové je dál rozlišen v mapových značkách, popiscích a zdrojových údajích. Barva nezvyšuje velikost modelu, nezmění rozměry ani výsledek viditelnosti.
+
+Panorama nově pokládá náš existující mapový styl OpenFreeMap / OpenStreetMap na skutečný radiální DEM terén. Mapové cesty, sídla, lesy a voda jsou kreslené v mapové textuře; nepředstavují automaticky objemové budovy nebo porosty. Shader používá sklon terénu pro stínování. Texturové UV jsou odvozené z přesných Mercatorových souřadnic a skutečných mezí vyrenderované mapy, takže nejde o náhodný zelený povrch nebo dekorativní obrázek.
+
+MapLibre připraví jeden severně orientovaný mapový obraz 2048 × 2048 px (1024 px na úzkém displeji) jen pro vybraný výřez; canvas se zkopíruje a dočasná mapová instance se uvolní. Podklad se připravuje souběžně s DEM a při otáčení kamery se znovu nestahuje. Časový limit, chyba sítě či zrušení výpočtu uvolní mapovou instanci. Při chybě aplikace viditelně oznámí, že zůstává pouze výškový terén, a nevydává ho za načtený mapový podklad. Kredity OSM/OpenFreeMap zůstávají v patičce a zdrojovém registru.
+
+Vizuální WebGL kontrola dosud není potvrzená; automatické testy kontrolují bílou barvu napříč statusy, sever/jih textury, souřadnicové rohy, zachování skutečné geometrie a uvolnění mapy při úspěchu, chybě i zrušení.
