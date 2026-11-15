@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "note": "Explicit cross-check against the individual AIP DMS coordinates. Not a geodetic survey; source accuracy approximately 20–31 m. Technical dimensions remain source-only.",
+  "matches": [
+    {
+      "featureId": "aip-116",
+      "catalogId": "csve-pchery",
+      "expectedName": "PCHERY",
+      "coordinates": [
+        14.12888888888889,
+        50.19611111111111
+      ],
+      "evidence": "AIP ENR 5.4 ID 116: 50°11′46″N 014°07′44″E; independently matched Pchery site. Dimensions 144 vs 138 m unresolved."
+    },
+    {
+      "featureId": "aip-118",
+      "catalogId": "csve-pchery",
+      "expectedName": "PCHERY",
+      "coordinates": [
+        14.134444444444444,
+        50.19833333333333
+      ],
+      "evidence": "AIP ENR 5.4 ID 118: 50°11′54″N 014°08′04″E; independently matched Pchery site. Dimensions 144 vs 138 m unresolved."
+    }
+  ]
+}

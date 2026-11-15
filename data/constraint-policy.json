@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-11-15",
+  "currentLawVerified": false,
+  "lawUrl": "https://e-sbirka.gov.cz/sb/2000/458",
+  "amendmentUrl": "https://mmr.gov.cz/getmedia/9717938e-a361-4dc2-9266-76120627a9f9/Sb_2025_87_PZZ.pdf.aspx?ext=.pdf",
+  "finding": "Official 87/2025 publication confirms 150/50 m from outer conductor to nearest blade tip and 50 m from station fence. Current consolidated law was not readable; no current statutory overlay enabled.",
+  "missing": [
+    "Verified plant boundaries and voltage levels",
+    "Surveyed construction footprints",
+    "Classified residential polygons",
+    "Outer conductor geometry and anti-vibration measures"
+  ]
+}

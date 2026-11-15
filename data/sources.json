@@ -97,6 +97,24 @@
       "checkedAt": "2026-11-15",
       "license": "Uživatelský scénář; bez tvrzení o povolení a realizaci.",
       "note": "Oddělené objekty ve sdílené URL a JSON. Poloha a rozměry zadané uživatelem, nikoli oficiální projekty."
+    },
+    {
+      "id": "csve-reference",
+      "name": "ČSVE · pracovní katalog 89 instalačních skupin",
+      "url": "https://www.csve.cz/instalace/instalace-v-cr/",
+      "validAt": "2025-12-01",
+      "checkedAt": "2026-11-15",
+      "license": "Hromadná redistribuce neověřena; výchozí veřejný build katalog neobsahuje.",
+      "note": "Původní PSV zachován, opravy jsou hypotézy. 89 řádků nejsou jednotlivé souřadnice; explicitně propojeny jen dvě turbíny Pcher."
+    },
+    {
+      "id": "constraints",
+      "name": "Geometrie a odstupy · podmíněné výpočty",
+      "url": "https://e-sbirka.gov.cz/sb/2000/458",
+      "validAt": null,
+      "checkedAt": "2026-11-15",
+      "license": "Vlastní výpočty a metodika; reálné zákonné vrstvy bez ověřených vstupů nejsou generovány.",
+      "note": "Obálka rotoru není zábor ani zákaz staveb. 500 m se odvozuje od klasifikovaných obytných ploch; aktuální konsolidované právní znění zůstává neověřeno."
     }
   ]
 }

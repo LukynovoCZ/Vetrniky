@@ -8,6 +8,10 @@
     "build": "node scripts/build.mjs",
     "test:vitr": "npm test",
     "build:vitr": "npm run build",
-    "nahled": "npm run dev"
+    "nahled": "npm run dev",
+    "audit:catalog": "node scripts/audit-catalog.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
   }
 }

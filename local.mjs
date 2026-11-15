@@ -1,3 +1,4 @@
+import {CONSTRAINT_KEYS,CONSTRAINT_COLORS,drapedRingSegments} from './constraints.mjs';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 const sharedAsset=await new GLTFLoader().loadAsync('models/turbine.gltf');
 const sharedGeometries=new Set();sharedAsset.scene.traverse(o=>{if(o.geometry)sharedGeometries.add(o.geometry);});
@@ -62,7 +63,7 @@ export class LocalView {
     this.scene=new T.Scene();this.scene.background=new T.Color(0xdce5d6);this.scene.fog=new T.Fog(0xdce5d6,5000,11000);
     this.scene.add(new T.HemisphereLight(0xfaf7e9,0x6c775c,2));const sun=new T.DirectionalLight(0xfff5d6,2.2);sun.position.set(-800,1500,900);this.scene.add(sun);
     this.ground=new T.Group();this.existing=new T.Group();this.future=new T.Group();this.zones=new T.Group();
-    this.simulation=new T.Group();this.scene.add(this.ground,this.existing,this.future,this.zones,this.simulation);this.scenery=new T.Group();this.scene.add(this.scenery);this.lastFrame=0;this.reducedMotion=false;
+    this.constraintGroups=new Map(CONSTRAINT_KEYS.map(k=>[k,new T.Group()]));for(const group of this.constraintGroups.values())this.scene.add(group);this.simulation=new T.Group();this.scene.add(this.ground,this.existing,this.future,this.zones,this.simulation);this.scenery=new T.Group();this.scene.add(this.scenery);this.lastFrame=0;this.reducedMotion=false;
     this.renderer.domElement.addEventListener('pointerdown',e=>{this.down=[e.clientX,e.clientY];this.drag=[e.clientX,e.clientY];});
     this.renderer.domElement.addEventListener('pointermove',e=>{
       if(this.mode==='eye' && e.buttons===1 && this.drag){this.yaw-=(e.clientX-this.drag[0])*.004;this.lookPitch=Math.max(-1.2,Math.min(1.2,this.lookPitch-(e.clientY-this.drag[1])*.004));this.eyeLook();this.drag=[e.clientX,e.clientY];}
@@ -102,7 +103,7 @@ export class LocalView {
       for(const f of (illustrative?[]:data.zones.features)){const polys=f.geometry.type==='MultiPolygon'?f.geometry.coordinates:[f.geometry.coordinates];for(const rings of polys){context2d.beginPath();for(const ring of rings){ring.forEach((p,i)=>{const [x,z]=localXY(p,origin),u=(x/SIZE+.5)*2048,v=(z/SIZE+.5)*2048;i?context2d.lineTo(u,v):context2d.moveTo(u,v);});context2d.closePath();}context2d.fillStyle='#b97c45';context2d.fill('evenodd');context2d.strokeStyle='#88562f';context2d.lineWidth=1.3;context2d.stroke();}}
       const zoneGeo=geo.clone();for(let i=0;i<zoneGeo.attributes.position.count;i++)zoneGeo.attributes.position.setY(i,zoneGeo.attributes.position.getY(i)+.7);
       const zoneTexture=new T.CanvasTexture(mask);zoneTexture.colorSpace=T.SRGBColorSpace;this.zones.add(new T.Mesh(zoneGeo,new T.MeshBasicMaterial({map:zoneTexture,transparent:true,opacity:.28,depthWrite:false})));
-      this.rebuildTurbines();this.setMode(mode,state.camera);this.resize();
+      this.rebuildTurbines();this.setConstraintLayers(this.data.constraints?.layers);this.setMode(mode,state.camera);this.resize();
       if(illustrative)this.notice(`${LANDSCAPES[state.landscape]} · modelová krajina, stromy ${state.treeHeight} m, turbína ${state.height} m · není skutečná lokalita ani projekt. Měřítko 1 : 1.`);else this.notice(`Místní terén 1 : 1 · ${isPchery?`Pchery: pole a lesy OSM; stromy modelové ${state.treeHeight} m, neznámé výšky budov bez objemu.`:'Mimo demonstrátor chybí místní budovy a vegetace.'} Výška očí je orientační.`);
       this.ready=true;
     } catch(e){if(e.name!=='AbortError'){this.ready=false;this.notice('Místní terén nelze načíst. Pohled není dostupný; vraťte se do přehledu. '+e.message);}}
@@ -178,6 +179,8 @@ export class LocalView {
       model.position.set(x,this.height(x,z),z);(i===2?this.simulation:i?this.future:this.existing).add(model);
     }});
   }
+  setConstraintLayers(layers){if(!this.constraintGroups||!this.height)return;for(const [key,group] of this.constraintGroups){this.clear(group);if(this.illustrative)continue;for(const f of layers?.[key]?.features||[]){const polys=f.geometry.type==='MultiPolygon'?f.geometry.coordinates:[f.geometry.coordinates];for(const rings of polys)for(const ring of rings){const points=drapedRingSegments(ring,this.origin,this.height).map(p=>new T.Vector3(...p));if(points.length){const line=new T.LineSegments(new T.BufferGeometry().setFromPoints(points),new T.LineBasicMaterial({color:CONSTRAINT_COLORS[key]}));line.userData.entityStatus=f.properties.entityStatus;group.add(line);}}}}}
+  constraintVisibility(before=false){for(const [key,group] of this.constraintGroups||[]){group.visible=!this.illustrative&&!!this.state.constraintLayers?.[key];for(const line of group.children)line.visible=!before||line.userData.entityStatus!=='simulation';}}
   setMode(mode,saved) {
     this.mode=mode;this.controls?.dispose();this.controls=null;const h=this.height?.(0,0)??0;
     if(mode==='eye'){
@@ -197,8 +200,8 @@ export class LocalView {
   saveCamera(){if(!this.camera)return;const p=this.camera.position.toArray();this.onCamera(this.mode==='eye'?[...p,this.yaw,this.lookPitch,0]:[...p,...this.controls.target.toArray()],this.camera.zoom);}
   resize(){const w=this.el.clientWidth,h=this.el.clientHeight;if(!w||!h||!this.camera)return;this.renderer.setSize(w,h);if(this.camera.isPerspectiveCamera)this.camera.aspect=w/h;else{this.camera.left=-1800*w/h;this.camera.right=1800*w/h;this.camera.top=1800;this.camera.bottom=-1800;}this.camera.updateProjectionMatrix();}
   draw(){if(!this.camera)return;const w=this.el.clientWidth,h=this.el.clientHeight;this.zones.visible=!this.illustrative&&this.state.zones;this.existing.visible=this.state.existing;this.simulation.visible=!this.illustrative;this.future.visible=this.state.scenario==='model'||(this.state.scenario==='projects'&&this.state.planned);
-    this.renderer.setScissorTest(false);this.renderer.clear();
-    if(this.state.compare){const s=Math.round(w*this.state.split/100);this.renderer.setScissorTest(true);this.renderer.setScissor(0,0,s,h);const show=this.future.visible;this.future.visible=false;this.simulation.visible=false;this.renderer.render(this.scene,this.camera);this.future.visible=show;this.simulation.visible=!this.illustrative;this.renderer.setScissor(s,0,w-s,h);this.renderer.render(this.scene,this.camera);this.renderer.setScissorTest(false);}else this.renderer.render(this.scene,this.camera);
+    this.constraintVisibility();this.renderer.setScissorTest(false);this.renderer.clear();
+    if(this.state.compare){const s=Math.round(w*this.state.split/100);this.renderer.setScissorTest(true);this.renderer.setScissor(0,0,s,h);const show=this.future.visible;this.future.visible=false;this.simulation.visible=false;this.constraintVisibility(true);this.renderer.render(this.scene,this.camera);this.future.visible=show;this.simulation.visible=!this.illustrative;this.constraintVisibility();this.renderer.setScissor(s,0,w-s,h);this.renderer.render(this.scene,this.camera);this.renderer.setScissorTest(false);}else this.renderer.render(this.scene,this.camera);
   }
   pick(e){if(!this.camera)return;const rect=this.el.getBoundingClientRect();const v=new T.Vector2((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1);const ray=new T.Raycaster();ray.setFromCamera(v,this.camera);
     // Include terrain/buildings in picking so hidden turbines cannot be clicked through hills.
