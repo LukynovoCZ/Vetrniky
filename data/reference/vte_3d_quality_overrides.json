@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "applies_to": "data/reference/vte_csve_instalace_2025-12-01.psv",
+  "checked_at": "2026-11-15",
+  "important": "Provisional hypotheses for 3D rendering. Do not overwrite raw ČSVE columns. Confirm primary technical documentation before treating as verified.",
+  "suggested_dimensions": [
+    {
+      "lokalita": "Andělka II.",
+      "rotor_3d_m": 92,
+      "osa_3d_m": 85,
+      "status": "provisional",
+      "note": "ČSVE dimensions appear reversed; installation-specific documentation needed."
+    },
+    {
+      "lokalita": "Dětřichov u Frýdlantu",
+      "rotor_3d_m": 90,
+      "osa_3d_m": 105,
+      "status": "provisional",
+      "note": "V90 likely rotor 90m; conflicting sources on tower height."
+    },
+    {
+      "lokalita": "Dívčí Hrad",
+      "rotor_3d_m": 110,
+      "osa_3d_m": 125,
+      "status": "provisional",
+      "source": "https://www.technoprojekt.cz/reference/divci-hrad-vetrna-elektrarna/",
+      "note": "Projectant confirms axis 125 m and top approximately 180 m; rotor 110 inferred."
+    },
+    {
+      "lokalita": "Gruna – Žipotín III",
+      "rotor_3d_m": 138,
+      "osa_3d_m": 111,
+      "status": "provisional",
+      "note": "E-138 model indicates 138 m rotor; source columns likely switched."
+    },
+    {
+      "lokalita": "Kopřivná",
+      "rotor_3d_m": 82,
+      "osa_3d_m": 108,
+      "status": "provisional",
+      "note": "E-82 likely rotor 82m; tower-specific verification required."
+    },
+    {
+      "lokalita": "Jívová",
+      "rotor_3d_m": 110,
+      "osa_3d_m": 95,
+      "status": "provisional",
+      "note": "ČSVE V110 reported as 95/110; probable column reversal."
+    },
+    {
+      "lokalita": "Oldřišov u Opavy",
+      "rotor_3d_m": 90,
+      "osa_3d_m": 105,
+      "status": "provisional",
+      "note": "V90 type suggests 90m rotor; source columns likely reversed."
+    },
+    {
+      "lokalita": "Vítězná u Dvora Králové",
+      "rotor_3d_m": 112,
+      "osa_3d_m": 119,
+      "status": "provisional",
+      "note": "Dimensions 112/119 reported in previous research; independently check original KHS document."
+    },
+    {
+      "lokalita": "Zlatá Olešnice I",
+      "rotor_3d_m": 112,
+      "osa_3d_m": 94,
+      "status": "provisional",
+      "note": "Likely swapped rotor/axis; confirm actual tower."
+    },
+    {
+      "lokalita": "Zlatá Olešnice II",
+      "rotor_3d_m": 100,
+      "osa_3d_m": 95,
+      "status": "provisional",
+      "note": "Likely swapped rotor/axis; confirm actual tower."
+    },
+    {
+      "lokalita": "Václavice",
+      "rotor_3d_m": null,
+      "osa_3d_m": null,
+      "status": "do_not_model_as_single_type",
+      "note": "Single row covers mixed MM100/MM92 with 13 turbines; needs per-turbine split."
+    }
+  ],
+  "anomalies": [
+    {
+      "lokalita": "Gruna – Žipotín II",
+      "issue": "1 × 600 kW = 600 kW, reported location total 1200 kW"
+    },
+    {
+      "lokalita": "Hať III.",
+      "issue": "1 × 4260 kW versus 4200 kW reported"
+    },
+    {
+      "lokalita": "Vítkov – Lysý Vrch",
+      "issue": "5 × 500 kW = 2500 kW versus 3100 kW reported"
+    },
+    {
+      "lokalita": "Moravice – Melč",
+      "issue": "V100 type while supplied rotor field is 110m"
+    },
+    {
+      "lokalita": "Andělka I.",
+      "issue": "Compare dimensions against neighboring MM92 Andělka II"
+    }
+  ],
+  "derived_fields": {
+    "top_height_m": "osa_3d_m + rotor_3d_m / 2",
+    "blade_lowest_m": "osa_3d_m - rotor_3d_m / 2",
+    "power_check": "jednotkovy_vykon_kw * pocet_vte == vykon_lokality_kw"
+  },
+  "legal_visualization_notes": [
+    "No universal statutory 500 m exclusion circle around every wind turbine.",
+    "Administrative protection area depends on site/voltage and geometry; do not substitute a hub-centered circle for a legally defined boundary.",
+    "Rotor swept area is not necessarily a no-build zone and is not a legal parcel footprint.",
+    "Noise, safety and shadow effects must be scenario-specific and distinguish estimates from legal restrictions."
+  ]
+}
