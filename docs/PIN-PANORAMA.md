@@ -44,3 +44,13 @@ Nové testy pokrývají kulovou geometrii a zakřivení, vzdálenosti/azimuty, b
 Přehledová mapa ukazuje modrou průhlednou výseč ze špendlíku, její okraj a přerušovanou osu pohledu. V panoramatu se stejná mapa zmenší do severně orientované mapky. Tlačítko Zvětšit mapu ji vrátí do hlavního přehledu; směr zůstane zakreslený. Otáčení aktualizuje výseč během tažení. Šířka vychází ze skutečného poměru stran perspektivní kamery a jejího FOV; zoom a změna velikosti okna proto odpovídajícím způsobem mění výseč. Zohlední se také půdorysná projekce nakloněné kamery; při zahrnutí svislého směru může tvořit celé okolí. Délka výseče odpovídá zkoumanému dosahu 20/40/60 km.
 
 Výseč je orientační záběr kamery, nikoli plocha skutečné viditelnosti. Nemaskuje oblasti skryté za terénem, budovami nebo vegetací a nenahrazuje výsledky terénního profilu. Polohy ani modelové scénáře nemění.
+
+## Rozhlednová orientace: kterým směrem a na co
+
+Přímo v panoramatu je kompasová stupnice s českými světovými stranami (S, SV, V, JV, J, JZ, Z, SZ), dílky po 5° a číselnými azimuty. Středová značka odpovídá směru kamery. Při rozhlížení, změně FOV nebo rozměrů okna se mění poloha dílků i popisků.
+
+Popisky nad obrazem a jejich spojnice používají tutéž perspektivu, stanoviště 1,7 m a sférické souřadnice jako 3D modely. Uvádějí název oblasti, elektrárny nebo uživatelského objektu, vzdálenost a jasně odlišují ILUSTRACI V OBLASTI, MOJI SIMULACI a EVIDENCI ŘLP. Více modelových turbín stejné oblasti tvoří jeden popisek; počet platí jen pro objekty právě v záběru. Kliknutí na popisek či název natočí kameru k reprezentativnímu objektu. Horní řádek vybírá skupinu nejbližší středu obrazu; nejde o dodatečně ověřenou dominantu nebo obecní centrum.
+
+Zakryté a neznámé objekty se nevydávají za viditelné popisky v obraze. Při porovnání před/po se nezobrazují popisky budoucích objektů na levé, současné straně. Popisky za kamerou mizí, blízké popisky se rozkládají do nepřekrývajících se řádků. Na krátkém displeji zůstává kompas a rolovatelný seznam názvů bez plovoucích spojnic.
+
+První verze pojmenovává objekty ze stávajících dat VTE a oblastí. Kopce, města a jiné krajinné dominanty nejsou domýšlené ani automaticky přiřazené podle názvu oblasti. Terénní a datová omezení výhledu zůstávají stejná.

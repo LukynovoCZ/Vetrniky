@@ -42,3 +42,9 @@ Přidán panoramatický režim, terénní profil a sférická geometrie. Ověře
 Doplněna synchronní výseč a osa kamery v hlavní mapě i orientační mapce panoramatu. Nové testy ověřují azimut přes sever, původ ve špendlíku, horizontální FOV podle poměru stran, změnu zoomu, projekci skloněné kamery a aktualizaci zdrojů MapLibre. Výseč není viewshed.
 
 - Výsledná sada po doplnění výseče: 43 testů. Kontrola zahrnuje také live callback skutečného poměru stran panoramatické kamery při změně rozměrů viewportu.
+
+## Rozhlednová kompasová stupnice a názvy objektů
+
+Přidány testy přechodu kompasu přes sever, českých světových stran, shody projekce popisků se skutečnou perspektivní kamerou Three.js, seskupování modelů v oblastech, vynechání objektů za kamerou a na současné straně porovnání, nepřekrývání popisků a bezpečného DOM zobrazení uživatelských názvů. Vizuální WebGL kontrola zůstává neověřená.
+
+- Lookout extension: all 49 tests passed; static build approximately 5.30 MiB with catalogue excluded.
